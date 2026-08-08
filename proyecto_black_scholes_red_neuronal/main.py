@@ -1,14 +1,4 @@
-"""
-PROYECTO: RED NEURONAL PARA ESTIMAR EL PRECIO DE OPCIONES FINANCIERAS
 
-Este programa combina el modelo matematico de Black-Scholes con una red
-neuronal de tipo perceptron multicapa (MLP). Primero genera ejemplos mediante
-la formula de Black-Scholes y despues entrena la red neuronal para aproximar
-el precio de una opcion europea de compra (call).
-
-Autor: [Escribir nombre del estudiante]
-Curso: Redes Neuronales
-"""
 
 from __future__ import annotations
 
@@ -40,16 +30,7 @@ VARIABLES_ENTRADA = [
 
 
 def precio_black_scholes_call(S, K, T, r, sigma):
-    """Calcula el precio de una opcion europea de compra con Black-Scholes.
 
-    Los parametros pueden ser numeros individuales o arreglos de NumPy.
-
-    S     : precio actual de la accion.
-    K     : precio de ejercicio de la opcion.
-    T     : tiempo hasta el vencimiento, expresado en anios.
-    r     : tasa de interes anual en formato decimal.
-    sigma : volatilidad anual en formato decimal.
-    """
     S = np.asarray(S, dtype=float)
     K = np.asarray(K, dtype=float)
     T = np.asarray(T, dtype=float)
@@ -77,7 +58,6 @@ def generar_dataset(cantidad: int, semilla: int = SEMILLA) -> pd.DataFrame:
 
     rng = np.random.default_rng(semilla)
 
-    # Rangos simulados razonables para un experimento academico.
     S = rng.uniform(50.0, 200.0, cantidad)
     K = rng.uniform(50.0, 200.0, cantidad)
     T = rng.uniform(0.05, 2.0, cantidad)
